@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "GW ClipTool Erweiterung",
+  "version": "1.0",
+  "permissions": ["tabs", "activeTab", "storage", "scripting", "clipboardRead", "clipboardWrite"],
+    "content_scripts": [{
+        "matches": ["https://uni4.gigrawars.de/game_highscore_index/*",
+                      "https://uni4.gigrawars.de/game_empire_index/*",
+                      "https://uni4.gigrawars.de/game_research_index/*",
+                      "https://uni4.gigrawars.de/game_player_index/*",
+                      "https://ally-tool.sys11.stytex.cloud/*"
+                    ],
+        "js": ["content.js"],
+        "run_at":"document_idle"
+    }],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
