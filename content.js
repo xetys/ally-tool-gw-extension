@@ -1,6 +1,10 @@
 function changePage(url) {
     window.history.pushState("info", "info" , "https://ally-tool.sys11.stytex.cloud" + url); 
     location.hash = ' ';
+
+    setTimeout(function () {
+        location.hash = '';
+    }, 200)
 }
 
 chrome.runtime.onMessage.addListener(
@@ -29,7 +33,7 @@ chrome.runtime.onMessage.addListener(
                                 document.querySelector('body > jhi-main > div.container-fluid > div > jhi-stat-import > div > form > textarea').focus();
                                 document.execCommand('paste');
                                 document.querySelector('body > jhi-main > div.container-fluid > div > jhi-stat-import > div > form > button').click();
-                            }, 300);
+                            }, 100);
                             break;
                         case "info":
                             changePage("/internal/player-info-import");
@@ -38,7 +42,7 @@ chrome.runtime.onMessage.addListener(
                                 document.querySelector('body > jhi-main > div.container-fluid > div > jhi-player-info-import > div > form > textarea').focus();
                                 document.execCommand('paste');
                                 // document.querySelector('body > jhi-main > div.container-fluid > div > jhi-player-info-import > div > form > button').click();
-                            }, 300);
+                            }, 100);
                     }
                 }
             }
