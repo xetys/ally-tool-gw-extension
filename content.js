@@ -4,7 +4,7 @@ function changePage(url) {
 
     setTimeout(function () {
         location.hash = '';
-    }, 200)
+    }, 100)
 }
 
 chrome.runtime.onMessage.addListener(
@@ -24,7 +24,7 @@ chrome.runtime.onMessage.addListener(
                 break;
             }
             case "send_to_am": {
-                console.log('got a call from GW', location.href);
+                console.log('got a call from GW', request.dataType);
                 if (location.href.includes('ally-tool')) {
                     switch (request.dataType) {
                         case "highscore":
@@ -37,7 +37,6 @@ chrome.runtime.onMessage.addListener(
                             break;
                         case "info":
                             changePage("/internal/player-info-import");
-                            console.log('request data', request.dataType, request.data);
                             setTimeout(function () {
                                 document.querySelector('body > jhi-main > div.container-fluid > div > jhi-player-info-import > div > form > textarea').focus();
                                 document.execCommand('paste');
@@ -45,6 +44,7 @@ chrome.runtime.onMessage.addListener(
                             }, 100);
                     }
                 }
+                sendResponse();
             }
         }
     });

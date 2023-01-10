@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GW ClipTool Erweiterung",
-  "version": "1.0",
+  "version": "1.1",
   "permissions": ["tabs", "activeTab", "storage", "scripting", "clipboardRead", "clipboardWrite"],
     "content_scripts": [{
         "matches": ["https://uni4.gigrawars.de/game_highscore_index/*",
